@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <RootNamespace>CohoCms.Razor</RootNamespace>
+    <PackageId>CohoCms.Razor</PackageId>
+    <Description>Razor components and tag helpers for Coho CMS content: images resized at the edge, and links to download assets.</Description>
+    <PackageTags>$(PackageTags);razor;blazor;aspnetcore;taghelpers;images</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="CohoCms.Razor.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Tag helpers live in ASP.NET Core's shared framework, so this renders on the server. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="CohoCms.Delivery" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

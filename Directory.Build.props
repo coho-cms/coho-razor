@@ -1,0 +1,42 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <Deterministic>true</Deterministic>
+    <!-- Documented where a name does not say it all, as in coho-delivery-sdk-dotnet; not member by member. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <!--
+    What the package carries: the same identity as coho-delivery-sdk-dotnet's packages. Keep
+    the version in step with CohoCms.Delivery's, and its minimum in Directory.Packages.props
+    on the version whose asset URLs it uses.
+  -->
+  <PropertyGroup>
+    <Version>0.1.0-alpha.3</Version>
+    <Authors>Coho CMS</Authors>
+    <Company>Coho CMS</Company>
+    <Copyright>Copyright Coho CMS</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/coho-cms/coho-razor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/coho-cms/coho-razor.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>coho;cms;headless</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <!-- Embedded, not linked by URL, as a reserved ID prefix's packages should be. -->
+    <PackageIcon>icon.png</PackageIcon>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)assets/icon.png" Pack="true" PackagePath="/" Visible="false" />
+  </ItemGroup>
+</Project>

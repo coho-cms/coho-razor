@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A minimum: the first version with Asset.Download. An app on a newer one gets that. -->
+    <PackageVersion Include="CohoCms.Delivery" Version="0.1.0-alpha.3" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.402" />
+
+    <PackageVersion Include="xunit.v3" Version="4.0.2" />
+  </ItemGroup>
+</Project>
