@@ -2,10 +2,8 @@
 
 Razor components and tag helpers for Coho CMS content: images resized at the edge, and links to download assets. They build their URLs from the asset delivery embeds in an entry, with no request of their own and no credential, so they work in Blazor, in Razor Pages, and in MVC views alike. They are the .NET counterparts of [`@coho-cms/react`](https://github.com/coho-cms/coho-react).
 
-**In testing.** Releases are alphas on NuGet.
-
 ```bash
-dotnet add package CohoCms.Razor --prerelease
+dotnet add package CohoCms.Razor
 ```
 
 ## Razor Pages and MVC
@@ -100,7 +98,7 @@ dotnet pack -c Release -o artifacts
 
 ## Publishing
 
-Run the **Publish** workflow from a version branch. It tests, packs and publishes the version in `Directory.Build.props`, which cannot be published twice. Keep the version in step with `CohoCms.Delivery`, and the minimum in `Directory.Packages.props` on the delivery version whose asset URLs it uses.
+Run the **Publish** workflow from a version branch. It tests, packs and publishes the version in `Directory.Build.props`, which cannot be published twice. Keep the version in step with `CohoCms.Delivery`'s year.release, such as `2026.1.0`, and the minimum in `Directory.Packages.props` on the delivery version whose asset URLs it uses.
 
 The workflow signs in to nuget.org with Trusted Publishing: a policy on nuget.org, held by the `CohoCMS` organisation, trusts `publish.yml` in this repository, and the workflow needs only `NUGET_USER`, the nuget.org user who created the policy. No API key is stored.
 
