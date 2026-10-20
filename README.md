@@ -98,7 +98,7 @@ dotnet pack -c Release -o artifacts
 
 ## Publishing
 
-Run the **Publish** workflow from a version branch. It tests, packs and publishes the version in `Directory.Build.props`, which cannot be published twice. Keep the version in step with `CohoCms.Delivery`'s year.release, such as `2026.1.0`, and the minimum in `Directory.Packages.props` on the delivery version whose asset URLs it uses.
+A release is a tag, `release-v` and the version: `release-v2026.1.0`, or `release-v2026.2.0-alpha.1` for a prerelease. Push it, after the `CohoCms.Delivery` it names is on nuget.org, and the **Publish** workflow tests, packs and publishes the tag's version, less `release-v`, which cannot be published twice. Bump `<Version>` in `Directory.Build.props` to match, so local builds carry it too. Keep the version in step with `CohoCms.Delivery`'s year.release, such as `2026.1.0`, and the minimum in `Directory.Packages.props` on the delivery version whose asset URLs it uses.
 
 The workflow signs in to nuget.org with Trusted Publishing: a policy on nuget.org, held by the `CohoCMS` organisation, trusts `publish.yml` in this repository, and the workflow needs only `NUGET_USER`, the nuget.org user who created the policy. No API key is stored.
 
