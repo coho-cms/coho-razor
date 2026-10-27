@@ -20,7 +20,6 @@ internal sealed record ImageMarkup(string Src, string? Srcset, string? Sizes, in
         ImageFit fit,
         ImageFormat format,
         int? quality,
-        string? background,
         string? sizes,
         IEnumerable<int>? widths,
         string? alt)
@@ -47,7 +46,6 @@ internal sealed record ImageMarkup(string Src, string? Srcset, string? Sizes, in
             Fit = fit == ImageFit.Scale ? null : fit,
             Format = format,
             Quality = quality,
-            Background = background,
         };
         var srcset = !asset.IsImage
             ? null

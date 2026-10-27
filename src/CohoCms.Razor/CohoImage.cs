@@ -51,7 +51,14 @@ public sealed class CohoImage : ComponentBase
     [Parameter]
     public int? Quality { get; set; }
 
-    /// <summary>The colour around a <see cref="ImageFit.Pad"/>, as <c>rrggbb</c>.</summary>
+    /// <summary>Ignored. The background is a setting on the transform, not a request parameter.</summary>
+    // ⚠️ Kept, ignored, and marked obsolete rather than deleted — which is the opposite
+    // of what the delivery SDK did with its own option, for a reason specific to here.
+    // This member is *bound*, so the framework consumes the attribute. Delete it and
+    // `background="…"` on the tag becomes an unbound attribute that passes straight
+    // through to the rendered `img`, which is a worse outcome than ignoring it. Obsolete
+    // says so at compile time, which is a louder signal than a type could give.
+    [Obsolete("The asset edge no longer accepts bg. The colour a Pad is filled with, and a jpg flattened onto, is a setting on the transform. This value is ignored, and the member will be removed.")]
     [Parameter]
     public string? Background { get; set; }
 
@@ -74,7 +81,7 @@ public sealed class CohoImage : ComponentBase
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
         ArgumentNullException.ThrowIfNull(builder);
-        if (ImageMarkup.For(Src, Width, Height, Fit, Format, Quality, Background, Sizes, Widths, Alt) is not { } image)
+        if (ImageMarkup.For(Src, Width, Height, Fit, Format, Quality, Sizes, Widths, Alt) is not { } image)
         {
             return;
         }
