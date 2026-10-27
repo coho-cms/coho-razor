@@ -4,7 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A minimum, the release this one goes with. An app on a newer one gets that. -->
-    <PackageVersion Include="CohoCms.Delivery" Version="2026.2.0-alpha.1" />
+    <PackageVersion Include="CohoCms.Delivery" Version="2026.2.0-alpha.2" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.402" />
 
     <PackageVersion Include="xunit.v3" Version="4.0.2" />
