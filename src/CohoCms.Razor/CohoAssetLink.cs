@@ -12,10 +12,6 @@ namespace CohoCms.Razor;
 /// downloads the file under its own name; set <see cref="Download"/> to false to open it in the
 /// browser instead. It carries the file's media type, so a browser or screen reader can say what
 /// it is.
-/// <para>
-/// ⚠️ Downloading needs the asset CDN to send the file as an attachment, which it does not do
-/// yet. Until it does, the link opens the file, and needs no change when it starts to.
-/// </para>
 /// </remarks>
 public sealed class CohoAssetLink : ComponentBase
 {

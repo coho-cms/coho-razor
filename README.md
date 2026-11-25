@@ -76,8 +76,6 @@ The `<img>` always has `width` and `height`, so the page keeps its space while t
 
 The link's text is its content, or the asset's title, or its filename. It downloads the file under its own name; `download="false"` opens it in the browser instead. It carries the file's media type. Other attributes, such as `class`, go to the `<a>`.
 
-⚠️ Downloading needs the asset CDN to send the file as an attachment, which it does not do yet: until it does, the link opens the file. The link needs no change when it starts to.
-
 ## Building your own
 
 The components are thin. The URLs come from `Image()`, `Srcset()` and `Download()` on `Asset`, in [`CohoCms.Delivery`](https://github.com/coho-cms/coho-delivery-sdk-dotnet/tree/HEAD/src/CohoCms.Delivery), which take the same options, for a CSS background, a social card or anything else.
